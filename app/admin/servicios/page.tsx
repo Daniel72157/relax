@@ -22,7 +22,7 @@ export default function AdminServiciosPage() {
   }
 
   useEffect(() => {
-    cargar();
+    void cargar();
   }, []);
 
   async function crear(e: React.FormEvent) {
@@ -30,7 +30,7 @@ export default function AdminServiciosPage() {
     if (!nuevo.nombre) return;
     await supabase.from("servicios").insert(nuevo);
     setNuevo(VACIO);
-    cargar();
+    void cargar();
   }
 
   async function actualizar(s: Servicio) {
@@ -44,7 +44,7 @@ export default function AdminServiciosPage() {
         activo: s.activo
       })
       .eq("id", s.id);
-    cargar();
+    void cargar();
   }
 
   function actualizarLocal(id: string, cambios: Partial<Servicio>) {

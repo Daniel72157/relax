@@ -56,7 +56,7 @@ export default function AdminProductosPage() {
   }
 
   useEffect(() => {
-    cargar();
+    void cargar();
   }, []);
 
   function mostrarNotificacion(tipo: "exito" | "error", texto: string) {
@@ -84,7 +84,7 @@ export default function AdminProductosPage() {
         mostrarNotificacion("exito", `Producto "${nuevo.nombre}" creado exitosamente.`);
         setNuevo(PRODUCTO_VACIO);
         setMostrarFormulario(false);
-        cargar();
+        void cargar();
       }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Error inesperado";
@@ -116,7 +116,7 @@ export default function AdminProductosPage() {
         mostrarNotificacion("error", `Error al actualizar: ${error.message}`);
       } else {
         mostrarNotificacion("exito", `Producto "${p.nombre}" actualizado.`);
-        cargar();
+        void cargar();
       }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Error inesperado";
@@ -133,7 +133,7 @@ export default function AdminProductosPage() {
         mostrarNotificacion("error", `Error al eliminar: ${error.message}`);
       } else {
         mostrarNotificacion("exito", `Producto "${nombre}" eliminado.`);
-        cargar();
+        void cargar();
       }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Error inesperado";
@@ -220,10 +220,11 @@ export default function AdminProductosPage() {
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-medium text-ink/70 mb-1">
+              <label htmlFor="nuevo-nombre" className="block text-xs font-medium text-ink/70 mb-1">
                 Nombre del Producto *
               </label>
               <input
+                id="nuevo-nombre"
                 type="text"
                 placeholder="Ej: Aceite Esencial Lavanda (Lavender)"
                 value={nuevo.nombre}
@@ -234,10 +235,11 @@ export default function AdminProductosPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-ink/70 mb-1">
+              <label htmlFor="nuevo-categoria" className="block text-xs font-medium text-ink/70 mb-1">
                 Categoría
               </label>
               <select
+                id="nuevo-categoria"
                 value={nuevo.categoria}
                 onChange={(e) => setNuevo({ ...nuevo, categoria: e.target.value })}
                 className="w-full rounded-xl border border-moss/25 px-3.5 py-2 text-sm bg-sand/30 focus:outline-none focus:ring-2 focus:ring-moss-dark"
@@ -253,10 +255,11 @@ export default function AdminProductosPage() {
 
           <div className="grid sm:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs font-medium text-ink/70 mb-1">
+              <label htmlFor="nuevo-tamano" className="block text-xs font-medium text-ink/70 mb-1">
                 Presentación / Tamaño
               </label>
               <input
+                id="nuevo-tamano"
                 type="text"
                 placeholder="Ej: 15 ml, 5 ml, 120 ml, Unidad"
                 value={nuevo.tamano}
@@ -266,10 +269,11 @@ export default function AdminProductosPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-ink/70 mb-1">
+              <label htmlFor="nuevo-precio" className="block text-xs font-medium text-ink/70 mb-1">
                 Precio (COP) *
               </label>
               <input
+                id="nuevo-precio"
                 type="number"
                 placeholder="Ej: 125000"
                 value={nuevo.precio || ""}
@@ -280,10 +284,11 @@ export default function AdminProductosPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-ink/70 mb-1">
+              <label htmlFor="nuevo-orden" className="block text-xs font-medium text-ink/70 mb-1">
                 Orden de Visualización
               </label>
               <input
+                id="nuevo-orden"
                 type="number"
                 placeholder="Ej: 1"
                 value={nuevo.orden}
@@ -294,10 +299,11 @@ export default function AdminProductosPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-ink/70 mb-1">
+            <label htmlFor="nuevo-descripcion" className="block text-xs font-medium text-ink/70 mb-1">
               Descripción Breve
             </label>
             <textarea
+              id="nuevo-descripcion"
               rows={2}
               placeholder="Descripción sensorial y origen del producto..."
               value={nuevo.descripcion}
@@ -307,10 +313,11 @@ export default function AdminProductosPage() {
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-ink/70 mb-1">
+            <label htmlFor="nuevo-beneficios" className="block text-xs font-medium text-ink/70 mb-1">
               Beneficios Principales (separados por coma o puntos)
             </label>
             <textarea
+              id="nuevo-beneficios"
               rows={2}
               placeholder="Ej: Promueve sueño profundo, calma el sistema nervioso, alivia la tensión muscular..."
               value={nuevo.beneficios}
@@ -356,10 +363,11 @@ export default function AdminProductosPage() {
       {/* Barra de Filtros y Búsqueda */}
       <div className="bg-white rounded-2xl border border-moss/15 p-4 sm:p-5 mb-6 grid sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-medium text-ink/70 mb-1.5 font-body">
+          <label htmlFor="filtro-categoria" className="block text-xs font-medium text-ink/70 mb-1.5 font-body">
             🌿 Filtrar por Categoría:
           </label>
           <select
+            id="filtro-categoria"
             value={filtroCategoria}
             onChange={(e) => setFiltroCategoria(e.target.value)}
             className="w-full rounded-xl border border-moss/25 bg-sand/30 px-3.5 py-2.5 text-sm font-body text-ink focus:outline-none focus:ring-2 focus:ring-moss-dark"
@@ -373,10 +381,11 @@ export default function AdminProductosPage() {
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-ink/70 mb-1.5 font-body">
+          <label htmlFor="busqueda-producto" className="block text-xs font-medium text-ink/70 mb-1.5 font-body">
             🔍 Buscar Producto o Beneficio:
           </label>
           <input
+            id="busqueda-producto"
             type="text"
             placeholder="Ej: Lavanda, Menta, Sueño, Difusor..."
             value={busqueda}
@@ -460,8 +469,9 @@ export default function AdminProductosPage() {
 
                 {/* Precio */}
                 <div>
-                  <label className="block text-[10px] text-ink/50 mb-0.5">Precio (COP):</label>
+                  <label htmlFor={`precio-${p.id}`} className="block text-[10px] text-ink/50 mb-0.5">Precio (COP):</label>
                   <input
+                    id={`precio-${p.id}`}
                     type="number"
                     value={p.precio}
                     onChange={(e) => actualizarLocal(p.id, { precio: Number(e.target.value) })}
@@ -510,8 +520,9 @@ export default function AdminProductosPage() {
               {/* Campos expandidos de descripción y beneficios */}
               <div className="grid sm:grid-cols-2 gap-3 pt-2 border-t border-moss/10">
                 <div>
-                  <label className="block text-[10px] text-ink/60 mb-0.5">Descripción:</label>
+                  <label htmlFor={`descripcion-${p.id}`} className="block text-[10px] text-ink/60 mb-0.5">Descripción:</label>
                   <textarea
+                    id={`descripcion-${p.id}`}
                     rows={1}
                     value={p.descripcion || ""}
                     onChange={(e) => actualizarLocal(p.id, { descripcion: e.target.value })}
@@ -520,8 +531,9 @@ export default function AdminProductosPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-[10px] text-ink/60 mb-0.5">Beneficios:</label>
+                  <label htmlFor={`beneficios-${p.id}`} className="block text-[10px] text-ink/60 mb-0.5">Beneficios:</label>
                   <textarea
+                    id={`beneficios-${p.id}`}
                     rows={1}
                     value={p.beneficios || ""}
                     onChange={(e) => actualizarLocal(p.id, { beneficios: e.target.value })}

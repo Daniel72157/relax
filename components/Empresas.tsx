@@ -151,8 +151,9 @@ export default function Empresas() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-ink/80 font-body mb-1">Empresa u Organización *</label>
+              <label htmlFor="empresa-nombre" className="block text-xs font-bold text-ink/80 font-body mb-1">Empresa u Organización *</label>
               <input
+                id="empresa-nombre"
                 placeholder="Nombre de la empresa"
                 value={empresa}
                 onChange={(e) => setEmpresa(e.target.value)}
@@ -162,8 +163,9 @@ export default function Empresas() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-ink/80 font-body mb-1">Nombre del Solicitante / Cargo *</label>
+              <label htmlFor="empresa-solicitante" className="block text-xs font-bold text-ink/80 font-body mb-1">Nombre del Solicitante / Cargo *</label>
               <input
+                id="empresa-solicitante"
                 placeholder="Ej: Laura Castro (Gestión Humana)"
                 value={solicitante}
                 onChange={(e) => setSolicitante(e.target.value)}
@@ -173,8 +175,9 @@ export default function Empresas() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-ink/80 font-body mb-1">WhatsApp o Celular Corporativo *</label>
+              <label htmlFor="empresa-telefono" className="block text-xs font-bold text-ink/80 font-body mb-1">WhatsApp o Celular Corporativo *</label>
               <input
+                id="empresa-telefono"
                 placeholder="Ej: 3001234567"
                 value={telefono}
                 onChange={(e) => setTelefono(e.target.value)}
@@ -185,8 +188,9 @@ export default function Empresas() {
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-bold text-ink/80 font-body mb-1">Experiencias</label>
+                <label htmlFor="empresa-experiencias" className="block text-xs font-bold text-ink/80 font-body mb-1">Experiencias</label>
                 <select
+                  id="empresa-experiencias"
                   value={numeroExperiencias}
                   onChange={(e) => setNumeroExperiencias(e.target.value)}
                   className="w-full rounded-xl border border-gold/30 px-3 py-2.5 font-body bg-sand/30 text-ink text-xs focus:outline-none focus:ring-2 focus:ring-gold/50"
@@ -198,8 +202,9 @@ export default function Empresas() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-ink/80 font-body mb-1">Modalidad</label>
+                <label htmlFor="empresa-modalidad" className="block text-xs font-bold text-ink/80 font-body mb-1">Modalidad</label>
                 <select
+                  id="empresa-modalidad"
                   value={modalidad}
                   onChange={(e) => setModalidad(e.target.value)}
                   className="w-full rounded-xl border border-gold/30 px-3 py-2.5 font-body bg-sand/30 text-ink text-xs focus:outline-none focus:ring-2 focus:ring-gold/50"

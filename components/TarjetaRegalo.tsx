@@ -118,10 +118,11 @@ export default function TarjetaRegalo() {
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-ink/80 font-body mb-1">
+              <label htmlFor="regalo-para" className="block text-xs font-bold text-ink/80 font-body mb-1">
                 ¿Para quién es el regalo? (Nombre) *
               </label>
               <input
+                id="regalo-para"
                 placeholder="Ej: Laura Gómez"
                 value={para}
                 onChange={(e) => setPara(e.target.value)}
@@ -130,10 +131,11 @@ export default function TarjetaRegalo() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-ink/80 font-body mb-1">
+              <label htmlFor="regalo-de" className="block text-xs font-bold text-ink/80 font-body mb-1">
                 ¿De parte de quién? (Tu nombre) *
               </label>
               <input
+                id="regalo-de"
                 placeholder="Ej: Carlos Pérez"
                 value={de}
                 onChange={(e) => setDe(e.target.value)}
@@ -143,10 +145,11 @@ export default function TarjetaRegalo() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-ink/80 font-body mb-1">
+            <label htmlFor="regalo-experiencia" className="block text-xs font-bold text-ink/80 font-body mb-1">
               Selecciona la experiencia a obsequiar:
             </label>
             <select
+              id="regalo-experiencia"
               value={experiencia}
               onChange={(e) => setExperiencia(e.target.value)}
               className="w-full rounded-xl border border-gold/30 px-4 py-3 font-body bg-sand/30 text-ink focus:outline-none focus:ring-2 focus:ring-gold/50"
@@ -163,10 +166,11 @@ export default function TarjetaRegalo() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-ink/80 font-body mb-1">
+            <label htmlFor="regalo-dedicatoria" className="block text-xs font-bold text-ink/80 font-body mb-1">
               Mensaje o dedicatoria especial:
             </label>
             <textarea
+              id="regalo-dedicatoria"
               placeholder="Ej: ¡Feliz cumpleaños! Mereces un momento de desconexión y relajación total..."
               value={dedicatoria}
               onChange={(e) => setDedicatoria(e.target.value)}

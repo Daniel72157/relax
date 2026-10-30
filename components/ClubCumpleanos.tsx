@@ -83,10 +83,11 @@ export default function ClubCumpleanos() {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-ink/75 font-body mb-1">
+              <label htmlFor="club-nombre" className="block text-xs font-semibold text-ink/75 font-body mb-1">
                 Nombre completo *
               </label>
               <input
+                id="club-nombre"
                 placeholder="Tu nombre y apellido"
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
@@ -96,10 +97,11 @@ export default function ClubCumpleanos() {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-ink/75 font-body mb-1">
+              <label htmlFor="club-telefono" className="block text-xs font-semibold text-ink/75 font-body mb-1">
                 WhatsApp (para enviarte tu bono oficial) *
               </label>
               <input
+                id="club-telefono"
                 placeholder="Ej: 3001234567"
                 value={telefono}
                 onChange={(e) => setTelefono(e.target.value)}
@@ -109,10 +111,11 @@ export default function ClubCumpleanos() {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-ink/75 font-body mb-1">
+              <label htmlFor="club-email" className="block text-xs font-semibold text-ink/75 font-body mb-1">
                 Correo electrónico (opcional)
               </label>
               <input
+                id="club-email"
                 type="email"
                 placeholder="ejemplo@correo.com"
                 value={email}
@@ -123,10 +126,11 @@ export default function ClubCumpleanos() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-ink/75 font-body mb-1">
+                <label htmlFor="club-dia" className="block text-xs font-semibold text-ink/75 font-body mb-1">
                   Día *
                 </label>
                 <select
+                  id="club-dia"
                   value={dia}
                   onChange={(e) => setDia(e.target.value)}
                   className="w-full rounded-xl border border-gold/30 px-4 py-3 font-body bg-sand/30 text-ink focus:outline-none focus:ring-2 focus:ring-gold/50"
@@ -140,10 +144,11 @@ export default function ClubCumpleanos() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-ink/75 font-body mb-1">
+                <label htmlFor="club-mes" className="block text-xs font-semibold text-ink/75 font-body mb-1">
                   Mes de Cumpleaños *
                 </label>
                 <select
+                  id="club-mes"
                   value={mes}
                   onChange={(e) => setMes(e.target.value)}
                   className="w-full rounded-xl border border-gold/30 px-4 py-3 font-body bg-sand/30 text-ink focus:outline-none focus:ring-2 focus:ring-gold/50"

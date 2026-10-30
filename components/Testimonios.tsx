@@ -70,7 +70,7 @@ export default function Testimonios() {
         if (isMounted) setLoading(false);
       }
     }
-    fetchReviews();
+    void fetchReviews();
     return () => {
       isMounted = false;
     };

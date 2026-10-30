@@ -325,10 +325,11 @@ export default function BookingForm() {
           </legend>
 
           <div className="max-w-md">
-            <label className="block text-xs font-medium text-ink/70 font-body mb-1.5">
+            <label htmlFor="reserva-fecha" className="block text-xs font-medium text-ink/70 font-body mb-1.5">
               Selecciona el día de tu visita:
             </label>
             <input
+              id="reserva-fecha"
               type="date"
               value={fecha}
               min={hoyMasDias(0)}
@@ -402,10 +403,11 @@ export default function BookingForm() {
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-ink/80 font-body mb-1">
+              <label htmlFor="reserva-nombre" className="block text-xs font-semibold text-ink/80 font-body mb-1">
                 Nombre completo *
               </label>
               <input
+                id="reserva-nombre"
                 placeholder="Nombre y apellido"
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
@@ -415,10 +417,11 @@ export default function BookingForm() {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-ink/80 font-body mb-1">
+              <label htmlFor="reserva-telefono" className="block text-xs font-semibold text-ink/80 font-body mb-1">
                 WhatsApp de confirmación *
               </label>
               <input
+                id="reserva-telefono"
                 placeholder="Ej: 3001234567"
                 value={telefono}
                 onChange={(e) => setTelefono(e.target.value)}
@@ -428,10 +431,11 @@ export default function BookingForm() {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-ink/80 font-body mb-1">
+              <label htmlFor="reserva-email" className="block text-xs font-semibold text-ink/80 font-body mb-1">
                 Correo electrónico (opcional)
               </label>
               <input
+                id="reserva-email"
                 type="email"
                 placeholder="ejemplo@correo.com"
                 value={email}
@@ -441,10 +445,11 @@ export default function BookingForm() {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-ink/80 font-body mb-1 flex items-center gap-1">
+              <label htmlFor="reserva-nacimiento" className="block text-xs font-semibold text-ink/80 font-body mb-1 flex items-center gap-1">
                 <span>🎂</span> Fecha de nacimiento (para 15% OFF en tu mes):
               </label>
               <input
+                id="reserva-nacimiento"
                 type="date"
                 value={nacimiento}
                 onChange={(e) => setNacimiento(e.target.value)}
@@ -454,10 +459,11 @@ export default function BookingForm() {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-ink/80 font-body mb-1">
+            <label htmlFor="reserva-notas" className="block text-xs font-semibold text-ink/80 font-body mb-1">
               Notas, requerimientos especiales o aromas preferidos (opcional)
             </label>
             <textarea
+              id="reserva-notas"
               placeholder="¿Alguna condición particular, celebración especial o preferencia que debamos tener en cuenta?"
               value={notas}
               onChange={(e) => setNotas(e.target.value)}

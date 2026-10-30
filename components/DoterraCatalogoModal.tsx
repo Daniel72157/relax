@@ -52,7 +52,7 @@ export default function DoterraCatalogoModal({
       }
     }
 
-    cargar();
+    void cargar();
 
     function manejarTecla(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
@@ -145,10 +145,7 @@ export default function DoterraCatalogoModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-sm animate-fadeIn">
       {/* Contenedor del Modal */}
-      <div
-        className="relative w-full max-w-5xl max-h-[92vh] flex flex-col bg-sand rounded-3xl border border-moss/20 shadow-2xl overflow-hidden"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="relative w-full max-w-5xl max-h-[92vh] flex flex-col bg-sand rounded-3xl border border-moss/20 shadow-2xl overflow-hidden">
         {/* Cabecera del Modal */}
         <div className="px-6 py-5 sm:px-8 sm:py-6 bg-white border-b border-moss/15 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
