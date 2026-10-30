@@ -1,0 +1,293 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Google Fonts ─────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Work+Sans:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --font-fraunces: "Fraunces", serif;
+  --font-worksans: "Work Sans", sans-serif;
+
+  /* Gold palette tokens */
+  --gold: #C9A84C;
+  --gold-light: #E2C068;
+  --gold-lighter: #F2D98A;
+  --gold-dark: #8C6420;
+  --gold-darker: #5C4110;
+  --gold-metallic: #D4AF37;
+  --gold-glow: rgba(201, 168, 76, 0.32);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F6F3EC;
+  color: #1A1C14;
+  background-image:
+    radial-gradient(ellipse at 65% 0%, rgba(201, 168, 76, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 0% 80%, rgba(113, 130, 98, 0.07) 0%, transparent 50%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Dark Section Utility ─────────────────────────────────── */
+.section-dark {
+  background-color: #404637 !important;
+  color: #F6F3EC !important;
+}
+
+/* ─── Luxury Glass & Solid Cards ───────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-gold {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(201, 168, 76, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.glass-dark {
+  background: #33382C !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 168, 76, 0.35) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  color: #F6F3EC !important;
+}
+
+/* ─── Gold Text Gradients with High Contrast ────────────────── */
+/* For light backgrounds (readable, deep gold) */
+.gold-text {
+  background: linear-gradient(135deg, #8C6420 0%, #B88E28 40%, #8C6420 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* For dark backgrounds (luminous bright gold) */
+.gold-text-light {
+  background: linear-gradient(135deg, #F2D98A 0%, #E2C068 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.gold-text-shimmer {
+  background: linear-gradient(90deg, #8C6420 0%, #C9A84C 30%, #E2C068 50%, #C9A84C 70%, #8C6420 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+  font-weight: 700;
+}
+
+/* ─── Gold Button ──────────────────────────────────────────── */
+.btn-gold {
+  position: relative;
+  background: linear-gradient(135deg, #E2C068 0%, #C9A84C 50%, #A07835 100%);
+  color: #12140D !important;
+  font-weight: 700;
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4), 0 1px 0 rgba(255, 255, 255, 0.4) inset;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+}
+
+.btn-gold::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-gold:hover::before {
+  left: 100%;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.6), 0 0 0 2px rgba(201, 168, 76, 0.3);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+.btn-luxury {
+  position: relative;
+  background: #FFFFFF;
+  color: #1A1C14 !important;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-luxury:hover {
+  background: rgba(201, 168, 76, 0.12);
+  border-color: #C9A84C;
+  color: #8C6420 !important;
+  transform: translateY(-2px);
+}
+
+/* ─── Gold Pills & Badges with High Contrast ───────────────── */
+.gold-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.875rem;
+  border-radius: 9999px;
+  background: rgba(201, 168, 76, 0.18);
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  color: #6B4C12 !important;
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.gold-pill-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.875rem;
+  border-radius: 9999px;
+  background: rgba(201, 168, 76, 0.22);
+  border: 1px solid rgba(226, 192, 104, 0.5);
+  color: #F2D98A !important;
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.875rem;
+  border-radius: 9999px;
+  background: rgba(201, 168, 76, 0.18);
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  color: #6B4C12 !important;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ─── Section Labels ───────────────────────────────────────── */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6B4C12 !important;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.section-label-dark {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #F2D98A !important;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* ─── Luxury Cards ─────────────────────────────────────────── */
+.card-luxury {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 1.25rem;
+  color: #1A1C14;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.card-luxury:hover {
+  border-color: rgba(201, 168, 76, 0.55);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.09), 0 4px 12px rgba(201, 168, 76, 0.18);
+  transform: translateY(-3px);
+}
+
+.card-luxury-dark {
+  position: relative;
+  background: #33382C !important;
+  border: 1px solid rgba(201, 168, 76, 0.35) !important;
+  border-radius: 1.25rem;
+  color: #F6F3EC !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.card-luxury-dark:hover {
+  border-color: rgba(226, 192, 104, 0.6) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7), 0 4px 20px rgba(201, 168, 76, 0.25);
+  transform: translateY(-3px);
+}
+
+/* ─── Gold Step Number ─────────────────────────────────────── */
+.step-gold {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #E2C068 0%, #C9A84C 50%, #A07835 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-fraunces);
+  font-size: 0.9rem;
+  color: #12140D;
+  font-weight: 700;
+  box-shadow: 0 3px 12px rgba(201, 168, 76, 0.4);
+  flex-shrink: 0;
+}
+
+/* ─── Scrollbars ───────────────────────────────────────────── */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 76, 0.35);
+  border-radius: 9999px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 168, 76, 0.6);
+}
