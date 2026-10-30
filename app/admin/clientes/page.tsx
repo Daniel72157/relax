@@ -118,7 +118,7 @@ export default function AdminClientesPage() {
       setCargando(false);
     }
 
-    cargarClientes();
+    void cargarClientes();
   }, []);
 
   const clientesFiltrados = useMemo(() => {
@@ -174,10 +174,11 @@ export default function AdminClientesPage() {
       <div className="bg-white rounded-2xl border border-moss/15 p-4 sm:p-5 mb-6 grid sm:grid-cols-2 gap-4">
         {/* Selector de Meses */}
         <div>
-          <label className="block text-xs font-medium text-ink/70 mb-1.5 font-body">
+          <label htmlFor="filtro-mes" className="block text-xs font-medium text-ink/70 mb-1.5 font-body">
             🎂 Filtrar por mes de cumpleaños:
           </label>
           <select
+            id="filtro-mes"
             value={mesFiltro}
             onChange={(e) => setMesFiltro(Number(e.target.value))}
             className="w-full rounded-xl border border-moss/25 bg-sand/30 px-3.5 py-2.5 text-sm font-body text-ink focus:outline-none focus:ring-2 focus:ring-moss-dark"
@@ -192,10 +193,11 @@ export default function AdminClientesPage() {
 
         {/* Buscador de texto */}
         <div>
-          <label className="block text-xs font-medium text-ink/70 mb-1.5 font-body">
+          <label htmlFor="busqueda-cliente" className="block text-xs font-medium text-ink/70 mb-1.5 font-body">
             🔍 Buscar cliente (nombre, teléfono o email):
           </label>
           <input
+            id="busqueda-cliente"
             type="text"
             placeholder="Ej: Daniel, 3001234567..."
             value={busqueda}
